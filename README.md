@@ -1,4 +1,4 @@
-# TNK-M10-PRO-C78-PCP
+# TNK-M10-PRO-C79-PCP
 
 Class 79 PCP code
 
