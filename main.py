@@ -58,13 +58,6 @@ class Pipe:
         screen.blit(images["invertedpipe"],self.tpipe)
 
 
-def save(winner):
-    file_name = 'std1.pkl'
-    with open(file_name, 'wb') as file:
-        pickle.dump(winner, file)
-        print(f'Object successfully saved to "{file_name}"')
-
-
 def eval_fitness(generation, config):
     global gen
     genomeCount=0
@@ -93,8 +86,7 @@ def eval_fitness(generation, config):
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
                         bird.moveup()
-                        
-            genome.fitness += 0.1         
+                                 
             pipe.display()
             bird.movedown()
             bird.display()
@@ -115,6 +107,9 @@ def eval_fitness(generation, config):
             # if output[0] is greter then 0.5 the move the bir up using bird.moveup() method
             if output[0] > 0.5: 
                 bird.moveup()    
+
+            # increase genome fitness by 0.1            
+            genome.fitness = genome.fitness + 0.1    
 
             screen.blit(images["base"],[groundx,550])
             score_text=score_font.render("Gen:"+str(gen)+" Genome:"+str(genomeCount), True, (0,0,255)) 
